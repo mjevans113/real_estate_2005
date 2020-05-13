@@ -30,7 +30,7 @@ class House
     rooms_same_category
   end
 
-  def area
+  def area_of_house
     house_area = 0
     @rooms.each do |room|
       house_area += room.area
@@ -44,7 +44,16 @@ class House
   end
 
   def price_per_square_foot
-    ppsf = @price.gsub(/\D/,'').to_i / area.to_f
+    ppsf = @price.gsub(/\D/,'').to_i / area_of_house.to_f
     ppsf.round(2)
   end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by { |room| -room.area }
+  end
+
+  # def rooms_by_category
+  #   by_category = {}
+  #   @rooms.each do |room|
+  # end
 end
