@@ -42,4 +42,9 @@ class House
     house_details = {"price" => @price.gsub(/\D/,'').to_i,
                      "address" => @address}
   end
+
+  def price_per_square_foot
+    ppsf = @price.gsub(/\D/,'').to_i / area.to_f
+    ppsf.round(2)
+  end
 end
