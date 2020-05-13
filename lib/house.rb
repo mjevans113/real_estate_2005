@@ -37,4 +37,9 @@ class House
     end
     house_area
   end
+
+  def details
+    house_details = {"price" => @price.gsub(/\D/,'').to_i,
+                     "address" => @address}
+  end
 end
