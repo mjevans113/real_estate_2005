@@ -52,8 +52,11 @@ class House
     @rooms.sort_by { |room| -room.area }
   end
 
-  # def rooms_by_category
-  #   by_category = {}
-  #   @rooms.each do |room|
-  # end
+  def rooms_by_category
+    by_cat = {}
+    @rooms.each do |room|
+      by_cat[room.category] = rooms_from_category(room.category)
+    end
+    by_cat
+  end
 end
